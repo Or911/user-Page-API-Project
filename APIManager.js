@@ -1,16 +1,16 @@
-//This is the class that will manage all your APIs
 
 class APIManager {
   constructor() {
+    this.mainUser = {}
     this.data = {};
     this.friends = {};
   }
 
-  clearData = function () {
+  clearData () {
     this.data = {};
   };
 
-  addFriends = function () {
+  addFriends () {
     let name = this.data?.user?.name?.firstName;
     if (!name) {
       return;
@@ -19,14 +19,14 @@ class APIManager {
     this.clearData();
     return this.friends;
   };
-  getFriend = function () {
+  getFriend () {
     return this.friends;
   };
 
-  GetUsers = function () {
+  GetUsers () {
     return $.ajax({
       method: "GET",
-      url: `https://randomuser.me/api/?page=3&results=7&inc=gender,name,nat,picture,location`,
+      url: `https://randomuser.me/api/?page=3&results=7&inc=gender,name,picture,location`,
     }).then((users) => {
       let user = users.results.shift();
       let img = user.picture.large;
@@ -39,7 +39,7 @@ class APIManager {
     });
   };
 
-  GetQuote = function () {
+  GetQuote () {
     return $.ajax({
       method: "GET",
       url: `https://api.kanye.rest/`,
@@ -49,7 +49,7 @@ class APIManager {
     });
   };
 
-  Getpokemon = function () {
+  Getpokemon () {
     let number = Math.random() * 949;
     number -= number % 2;
     return $.ajax({
@@ -65,7 +65,7 @@ class APIManager {
     });
   };
 
-  GetMeatText = function () {
+  GetMeatText () {
     return $.ajax({
       method: "GET",
       url: `https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1`,

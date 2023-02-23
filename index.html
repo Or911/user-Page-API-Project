@@ -20,11 +20,10 @@
 
   <body>
     <script id="user-template" type="text/x-handlebars-template">
-      <div id="profile-information">
-        <img src="{{img}}" id="profile-pic" />
+      <img src="{{img}}" id="profile-pic" />
+      <div class="user-info">
         <p>{{name.firstName}} {{name.lastName}}</p>
-        <p>{{state}}</p>
-        <p>{{city}}</p>
+        <p>{{state}}, {{city}}</p>
       </div>
     </script>
 
